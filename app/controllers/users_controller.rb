@@ -47,13 +47,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    respond_with User.create user_params
-    # @user = User.new(user_params)
-    # if @user.save
-    #   redirect_to users_admin_path(@user)
-    # else
-    #   render 'new'
-    # end
+    # respond_with User.create user_params
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to users_admin_path(@user)
+    else
+      render 'new'
+    end
   end
 
   def order_by_login
